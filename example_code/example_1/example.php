@@ -1,7 +1,6 @@
 <?php
 
 //reset all variables needed for our connection
-$connection = null;
 $username = null;
 $password = null;
 $dsn = null;

@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to SQL ...and now what?</title>
+
+		<meta name="description" content="An overview of relational databases, SQL, and some useful projects using the tool">
+		<meta name="author" content="Ray Voelker">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		
+		<link rel="stylesheet" href="css/reveal-override.css"/>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<img id="plchlogo" src="./img/plchlogo.png" style="/*visibility: hidden;*/ position: absolute; top: 0px; right: 0px;height: 100px;">
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				
+				<section data-state="hidelogo" data-transition="none" data-transition-speed="fast" data-background-image="./img/fountain_background_01.png" data-background-size="contain">
+				</section>
+				
+				<section data-state="hidelogo"  data-trinsition="none" data-transition-speed="fast" data-background-image="./img/fountain_background_02.png" data-background-size="contain">
+				</section>
+
+				<section data-state="showlogo">
+					
+					
+					<h2>Overview of Relational Databases</h2> 
+					<p>
+					<ul>
+						<li class="fragment"> Data in these types of databases are 
+						stored in collections, or <b>tables</b> 
+						</li> 
+						<li class="fragment">Tables have a number of rows and 
+						columns
+						</li> 
+						<li class="fragment">Each row is (often) 
+						represented with a <b>unique key</b>.
+						</li>
+					</ul>
+					</p>
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<h2>Overview of Relational Databases: Keys</h2> 
+					<p class="fragment" style="text-align: left;">
+						Keys (typically called ID’s in the Sierra Database) come in two varieties, and they define the relationship between tables.
+					</p>	
+						
+					<ul>
+						<li class="fragment">
+							Primary Key
+						</li>
+						
+						<li class="fragment">
+							Foreign Key
+						</li>
+						
+					</ul>
+				</section>
+
+				
+				<section data-state="hidelogo" data-background-image="./img/table_key_example_01.png" data-background-size="contain"></section>
+				<section data-state="hidelogo" data-transition="none" data-transition-speed="fast" data-background-image="./img/table_key_example_02.png" data-background-size="contain"></section>
+				<section data-state="hidelogo" data-transition="none" data-transition-speed="fast" data-background-image="./img/table_key_example_03.png" data-background-size="contain"></section>
+				<section data-state="hidelogo" data-transition="none" data-transition-speed="fast" data-background-image="./img/table_key_example_04.png" data-background-size="contain"></section>
+				<section data-state="hidelogo" data-transition="none" data-transition-speed="fast" data-background-image="./img/table_key_example_05.png" data-background-size="contain"></section>
+				<section data-state="hidelogo" data-transition="none" data-transition-speed="fast" data-background-image="./img/table_key_example_06.png" data-background-size="contain"></section>
+				<section data-state="hidelogo" data-transition="none" data-transition-speed="fast" data-background-image="./img/table_key_example_07.png" data-background-size="contain"></section>
+				<section data-state="hidelogo" data-transition="none" data-transition-speed="fast" data-background-image="./img/table_key_example_08.png" data-background-size="contain"></section>
+				<section data-state="hidelogo" data-transition="none" data-transition-speed="fast" data-background-image="./img/table_key_example_09.png" data-background-size="contain"></section>
+				
+				
+				<section data-state="showlogo">
+					<h2>Overview of Database Entity-Relationship Model</h2>
+					<h2>(ERM View)</h2>
+					<ul>
+						<li>Defines the types of relationships that can exist between entities (tables)
+							<ul>
+								<li class="fragment">One-to-One</li>
+								<li class="fragment">One-to-Many</li>
+								<li class="fragment">Many-to-Many</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				
+				<section data-state="showlogo">
+					<h2>Database Entity-Relationship Model</h2>
+					<h3>One-to-One</h3>
+					<ul>
+					<li class="fragment">A Country can have one (and only one) Capital City</li>
+					<li class="fragment">A Capital City can have one (and only one) Country</li>
+					</ul>
+					
+				</section>
+
+				<section data-state="showlogo">
+					<h2>Database Entity-Relationship Model</h2>	
+					<h3>One-to-One</h3>
+				
+					<img src="./img/one-to-one.png" width="150%" style="border: 0; box-shadow: 0 0 0;">
+				
+				</section>
+
+
+				<section data-state="showlogo">
+					<h2>Database Entity-Relationship Model</h2>
+					<h3>One-to-Many</h3>
+					
+					<ul>
+					<li class="fragment">A Mother may have many Children</li>
+					<li class="fragment">A Child has only one (biological) Mother</li>
+					</ul>
+					
+				</section>
+
+				
+				<section data-state="showlogo">
+					<h2>Database Entity-Relationship Model</h2>
+					<h3>One-to-Many</h3>
+					<img src="./img/one-to-many.png" width="150%" style="border: 0; box-shadow: 0 0 0;">
+
+				</section>
+
+
+				<section data-state="showlogo">
+					<h2>Database Entity-Relationship Model</h2>
+					<h3>Many-to-Many</h3>
+					
+					<ul>
+					<li class="fragment">Authors can write several Books</li>
+					<li class="fragment">Books can be written by several Authors</li>
+					</ul>
+					
+				</section>
+
+
+
+				<section data-state="showlogo">
+					<h2>Database Entity-Relationship Model</h2>
+					<h3>Many-to-Many</h3>
+					<img src="./img/many-to-many.png" width="150%" style="border: 0; box-shadow: 0 0 0;">
+
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Relational Databases: Relationships (JOINS)</p>
+					<ul>
+						<li class="fragment">Sets of data can be derived from Relational Operators from traditional math sets.</li> 
+						<li class="fragment">We'll cover two of the more common JOIN operations
+							<ul>
+								<li class="fragment">JOIN (or INNER JOIN)</li>
+								<li class="fragment">LEFT JOIN (or LEFT OUTER JOIN)</li>
+							
+							</ul>
+						</li>
+						
+					</ul>
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Relational Databases: Relationships (JOINS) cont.</p>
+					<h3>JOIN (or INNER JOIN)</h3>
+					<ul>
+						<li class="fragment">Most common type of join that there is</li>
+						<li class="fragment">Given two sets, A (left) and B (right), performing this join will return a set containing all elements of A that also belong to B.</li>
+					</ul>
+					
+					<img src="./img/INNER_JOIN.png" style="border: 0; box-shadow: 0 0 0;">
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Relational Databases: Relationships (JOINS) cont.</p>
+					<h3>LEFT JOIN (or LEFT OUTER JOIN)</h3>
+					<ul>
+						<li class="fragment">Given two sets, A (left) and B (right) performing this join will return a set containing all elements of table A, as well as the elements of A that also belong to B</li>
+					</ul>
+				
+					<img src="./img/LEFT_JOIN.png" style="border: 0; box-shadow: 0 0 0;">
+				</section>
+			
+			
+				<section data-state="showlogo">
+					<h2>SQL Overview</h2>
+					<ul>
+						<li class="fragment">Structured Query Language</li>
+						<li class="fragment">Standardized language that allows a user to interface with a relational database</li>						
+					</ul>				
+				</section>
+				
+				<section data-state="showlogo">
+					<p>SQL Overview cont.</p>
+					<ul>
+						<li>SQL statements are groups of clauses or other statements that define the operation on the database</li>
+						<li class="fragment">Some of the more common statements include the following... (SQL is picky about the order in which these statements appear in so they're presented in the order that they can appear in the statement.)</li> 
+					</ul>
+				
+				</section>
+			
+				<section data-state="showlogo">
+					<p>SQL Overview cont.</p>
+					<ul>
+						<li>
+							SELECT 
+					
+							<ul class="fragment">
+								<li>Retrieves data from tables</li>
+								<li>Most commonly used statement</li>
+							</ul>
+						</li>
+						
+						<li class="fragment">
+							UPDATE and SET
+							<ul>
+								<li class="fragment">Modifies a set of existing table rows</li>
+							</ul>						
+						</li>
+						
+						<li class="fragment">
+							DELETE
+							<ul>
+								<li class="fragment">Remove set of existing rows from the table</li>
+							</ul>
+						</li>
+
+					</ul>
+				</section>
+				
+				<section data-state="showlogo">
+					<p>SQL Overview cont.</p>
+					
+					<ul>
+						<li>
+							CREATE
+							<ul>
+								<li class="fragment">
+								Typically used to create a table in the database								
+								</li>
+							</ul>
+						</li>
+						
+						<li class="fragment">
+							JOIN / LEFT JOIN / etc
+							<ul>
+								<li class="fragment">Performing a join will combine the data with that of another table</li>
+							</ul>
+						</li>
+						
+						<li class="fragment">
+							FROM
+							<ul>
+								<li class="fragment">Indicates which table to retrieve data from</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section data-state="showlogo">
+					<p>SQL Overview cont.</p>
+					<ul>
+						<li class="fragment">
+							WHERE / WHERE IN
+							<ul>
+								<li class="fragment">
+									Include or exclude data based on comparisons
+								</li>
+							</ul>
+						</li>
+						
+						<li class="fragment">
+							GROUP BY
+							<ul>
+								<li class="fragment">
+									Reduces sets into common values
+								</li>
+							</ul>
+						</li>
+						
+						<li class="fragment">
+							HAVING
+							<ul>
+								<li class="fragment">
+									Allows for filtering of the GROUP BY statement
+								</li>
+							</ul>
+						</li>
+						
+						<li class="fragment">
+							LIMIT / OFFSET
+							<ul>
+								<li class="fragment">
+									Returns specific numbers of rows from given starting point
+								</li>
+							</ul>
+						
+						</li>
+						
+					</ul>
+				
+				
+				</section>
+			
+			
+				<section data-state="showlogo">
+					<h2>SQL SELECT Statements</h2>
+					<ul>
+						<li class="fragment">FINALLY SOME EXAMPLES!</li>
+						<li class="fragment">Let us say we wanted to get a list of the bib records that had the lowest IDs in the system. The following query would give us a very basic view of those records.</li>
+					</ul>				
+				</section>
+								
+				<section data-state="showlogo">
+					<p>SQL SELECT Statement cont.</p>
+					<pre><code class="sql" data-trim contenteditable>
+SELECT
+r.id, r.record_type_code, 
+r.record_num, r.creation_date_gmt, 
+r.deletion_date_gmt, r.num_revisions
+
+FROM
+sierra_view.record_metadata AS r
+
+WHERE
+r.record_type_code = 'b'
+
+ORDER BY
+r.id ASC
+
+LIMIT 5 OFFSET 40;
+					</code></pre>
+				</section>
+				
+				<section data-state="showlogo">
+					<p>SQL SELECT Statement cont.</p>
+					<p>Results... </p>
+					<img src="./img/record_metadata_1.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+				</section>
+
+				<section data-state="showlogo">
+					<p>SQL SELECT Statement cont.</p>
+					<ul>
+						<li>This is ok, but maybe we also wanted "Title" from the bib record</li>
+						<li class="fragment">We'll use a JOIN!</li>
+						<li class="fragment">Looks like table <a href="https://techdocs.iii.com/sierradna/Home,$DirectLink.sdirect?sp=SBib" target="_blank">"bib_record_property"</a> has what we need</li>
+					</ul>
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>SQL SELECT Statement cont.</p>
+					<pre><code class="sql" data-trim contenteditable>
+SELECT
+r.id, r.record_type_code, 
+r.record_num, r.creation_date_gmt, 
+r.deletion_date_gmt, r.num_revisions,
+p.bib_record_id, p.best_title
+
+FROM
+sierra_view.record_metadata AS r
+
+JOIN
+sierra_view.bib_record_property AS p
+ON
+p.bib_record_id = r.id
+
+WHERE
+r.record_type_code = 'b'
+
+ORDER BY
+r.id ASC
+					</code></pre>
+				</section>
+				
+				
+				<section data-state="showlogo">
+				
+				<p>SQL SELECT Statement cont.</p>
+					<p>Results... </p>
+					<img src="./img/record_metadata_2.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+				
+				</section>
+				
+				<section data-state="showlogo">
+					<p>SQL SELECT Statement cont.</p>
+					<ul>
+						<li>This looks better</li>
+						<li class="fragment">But wait, where's bib record number 1000042?</li>
+					</ul>
+					
+					<p class="fragment">
+					<img src="./img/record_metadata_1.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+					<img src="./img/record_metadata_2.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+					</p>
+					
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>SQL SELECT Statement cont.</p>
+					<ul>
+						<li>Table, "bib_record_property", has no foreign key for the deleted record and therefore won’t be joined in our results</li>
+						<li class="fragment">We can fix this!</li>
+						<li class="fragment">... with a LEFT JOIN (or LEFT OUTER JOIN)!</li>
+					</ul>
+					
+				</section>
+				
+				<section data-state="showlogo">
+					<p>SQL SELECT Statement cont.</p>
+					<pre><code class="sql" data-trim contenteditable>
+SELECT
+r.id, r.record_type_code, 
+r.record_num, r.creation_date_gmt, 
+r.deletion_date_gmt, r.num_revisions,
+p.bib_record_id, p.best_title
+
+FROM
+sierra_view.record_metadata AS r
+
+-- changed LEFT JOIN to LEFT OUTER JOIN
+LEFT OUTER JOIN
+sierra_view.bib_record_property AS p
+ON
+p.bib_record_id = r.id
+
+WHERE
+r.record_type_code = 'b'
+
+ORDER BY
+r.id ASC;
+					</code></pre>
+				</section>
+				
+
+				<section data-state="showlogo">
+					<p>SQL SELECT Statement cont.</p>
+					<p>Results... </p>
+					<img src="./img/record_metadata_3.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+					<img class="fragment" src="./img/LEFT_JOIN.png" style="border: 0; box-shadow: 0 0 0;">
+					
+				
+				</section>
+
+
+
+				<section data-state="showlogo">
+					<h2>SQL GROUP BY / HAVING and Aggregate Functions</h2>
+					<ul>
+						<li class="fragment">Reduces sets into common values, or groups results of one or more column together</li>
+						<li class="fragment">Often used along with aggregate functions</li>
+							<ul>
+								<li class="fragment">COUNT()</li>
+								<li class="fragment">SUM()</li>
+								<li class="fragment">MAX()</li>
+							</ul>
+					</ul>
+				</section>
+				
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<ul>
+						<li>Let us say that we wanted to count the number of patrons where the first name is "Ray"</li>
+					</ul>
+					
+				</section>
+				
+				
+				
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<pre><code class="sql" data-trim contenteditable>
+					
+SELECT
+n.first_name,
+COUNT(*) AS count
+
+FROM
+sierra_view.patron_record_fullname AS n
+
+WHERE
+LOWER(n.first_name) = 'ray'
+
+GROUP BY
+n.first_name
+					</code></pre>
+				</section>
+
+
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<p>Results... </p>
+					<img src="./img/ray_count.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+				
+				</section>
+				
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<ul>
+						<li>HAVING
+							<ul>
+								<li class="fragment">Allows for limiting results of an aggregate function</li>
+								<li class="fragment">Example query: find all location codes having exactly 8 items</li>
+							</ul>
+						</li>
+					</ul>
+				
+				</section>
+				
+				
+				
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<pre><code class="sql" data-trim contenteditable>
+SELECT
+i.location_code,
+count(*)
+
+FROM
+sierra_view.item_record AS i
+
+GROUP BY
+i.location_code
+
+HAVING
+count(*) = 8				
+					</code></pre>
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<p>Results... </p>
+					<img src="./img/item_count.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+				
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<ul>
+						<li>Another useful aggregate function example
+							<ul>
+								<li>SUM() a series of numbers from results</li>
+								<li class="fragment">Find patrons record IDs for patrons records that have total fines that are exactly at $10 (the amount that prevents patrons from borrowing) </li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<pre><code class="sql" data-trim contenteditable>
+					
+SELECT
+f.patron_record_id
+
+FROM
+sierra_view.fine as f
+
+GROUP BY
+f.patron_record_id
+
+HAVING 
+SUM( 
+(f.item_charge_amt 
+ + f.processing_fee_amt 
+ + f.billing_fee_amt) 
+- f.paid_amt
+) = 10.00
+					
+					</code></pre>
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<p>Results... </p>
+					<img src="./img/10_dollar_fines_ids.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+				
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>SQL GROUP BY / HAVING and Aggregate Functions cont.</p>
+					<ul>
+						<li>These are database IDs and not very useful on their own
+							<ul>
+								<li class="fragment">What would be more useful is the patron record numbers, so we can use them in a review file!</li>
+								<li class="fragment"> !</li>
+							</ul>
+						</li>
+					</ul>
+					<img src="./img/10_dollar_fines_ids.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+				</section>
+				
+				<section data-state="showlogo">
+					<h2>Subqueries and WHERE IN Statements</h2>
+					<ul>
+						<li class="fragment">In the example above, we were able to target patrons who had fine of exactly $10.00 to get the patron record IDs. But these are database IDs.</li>
+						<li class="fragment">This doesn’t tell us anything about the patron, or even the patron record number</li>
+						<li class="fragment">One way to get additional data is to use an SQL feature known as the sub-query</li>
+					</ul>
+					
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Subqueries and WHERE IN Statements cont.</p>
+					<ul>
+						<li class="fragment">Subqueries are simply nested queries</li>
+						<li class="fragment">Example Query: Find patrons <strike>record IDs</strike> <u>patron record numbers</u> for patrons records that have total fines that are exactly at $10 (the amount that prevents patrons from borrowing)</li>
+					</ul>
+					
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Subqueries and WHERE IN Statements cont.</p>
+					<ul>
+						<li>Query part 1: find patron record numbers</li>
+					</ul>
+					<pre><code class="sql" data-trim contenteditable>
+SELECT
+r.record_type_code 
+|| r.record_num 
+|| 'a' AS patron_record_num
+
+FROM
+sierra_view.record_metadata AS r
+
+WHERE
+r.record_type_code = 'p'
+
+LIMIT 5;
+					</code></pre>
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Subqueries and WHERE IN Statements cont.</p>
+					<p>Results... </p>
+					<img src="./img/patron_record_nums.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+				
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Subqueries and WHERE IN Statements cont.</p>
+					<ul>
+						<li>Query part 2: Find patrons record IDs for patrons records that have total fines that are exactly at $10</li>
+						<li class="fragment">We already wrote this query in the previous example... we can nest it, or treat it as a subquery!</li>
+					</ul>
+
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Subqueries and WHERE IN Statements cont.</p>
+					<pre><code class="sql" data-trim contenteditable>
+SELECT
+r.record_type_code 
+|| r.record_num 
+|| 'a' AS patron_record_num
+
+FROM
+sierra_view.record_metadata AS r
+
+WHERE
+r.id IN(
+	SELECT
+	f.patron_record_id
+
+	FROM
+	sierra_view.fine AS f
+
+	GROUP BY
+	f.patron_record_id
+
+	HAVING 
+	SUM( 
+	(f.item_charge_amt 
+	 + f.processing_fee_amt 
+	 + f.billing_fee_amt) 
+	- f.paid_amt
+	) = 10.00
+)
+
+LIMIT 5;
+					</code></pre>
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Subqueries and WHERE IN Statements cont.</p>
+					<p>Results... </p>
+					<img src="./img/patron_record_nums_subquery.sql_results.png" style="border: 0; box-shadow: 0 0 0;">
+				
+				</section>
+				
+				
+				<section data-state="showlogo">
+				
+					<h2>OK ... Now What?!</h2>
+					<p class="fragment">A whole bunch of cool things!</p>
+					<ul>
+						<li class="fragment">Importing record numbers into a review file!</li>
+						<li class="fragment">Write scripts and automate reports!</li>
+						<li class="fragment">Create Other Apps!</li>
+					</ul>
+				
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Importing into Review File</p>
+					<a target="_blank" href="https://techdocs.iii.com/sierrahelp/Default.htm#sgil/sgil_lists_new_review_file.html#import">iii Documentation</a>
+					<img src="./img/import1.png" style="border: 0; box-shadow: 0 0 0;">
+				
+				</section>
+				
+				<section data-state="showlogo">
+					<p>Importing into Review File cont.</p>
+					<img src="./img/import2.png" style="border: 0; box-shadow: 0 0 0;">				
+				</section>
+				
+				<section data-state="showlogo">
+					<p>Importing into Review File cont.</p>
+					<img src="./img/import3.png" style="border: 0; box-shadow: 0 0 0;">				
+				</section>
+				
+				<section data-state="showlogo">
+					<p>Importing into Review File cont.</p>
+					<img src="./img/import4.png" style="border: 0; box-shadow: 0 0 0;">				
+				</section>
+				
+				
+				
+				<section data-state="showlogo">
+					<p>Write scripts and automate reports</p>
+					<ul>
+						<li class="fragment">PostgreSQL is widely supported by many programming languages and their libraries.
+							<ul>
+								<li class="fragment">PHP, Perl, Python, Node, R … etc.</li>
+								<li class="fragment">You can use the SQL statement to create a variety of applications and tools that might need access to real-time data from within Sierra.</li>
+							</ul>
+						</li>				
+					</ul>
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Write scripts and automate reports cont.</p>
+					<ul>
+					<li>Applications
+						<ul>
+							<li>Item inventory application (<a target="_blank" href="https://github.com/rayvoelker/2015RoeschLibraryInventory">github link</a>)</li>
+							<li>New books / items list for web (<a target="_blank" href="https://github.com/rayvoelker/DIY_API/tree/master/code_examples/new_books">github link</a>)</li>
+						</ul>
+					</li>
+					</ul>
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<p>Write scripts and automate reports cont.</p>
+					<ul>
+						<li>Automated Reports and Statistics
+							<ul>
+								<li class="fragment">Duplicate patrons (same barcodes exist in multiple records, or same first name, last name and birth date may indicate a duplicated patron)</li>
+								<li class="fragment">Data Entry errors: malformed data (phone number for example)</li>
+								<li class="fragment">Number of circulations grouped by item type, call number, location code, and circulation location (<a target="_blank" href="https://github.com/plch/sierra-sql/wiki/Statistics-and-Trends#circulations-from-main-branch-work-in-progress">github link</a>)</li>
+							</ul>
+						
+						</li>
+					</ul>
+				
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<ul>
+						<li>While there are some things you can do with the Create List (Review File) function from within Sierra, there are just some types of searches that are not practical / possible.
+							<ul>
+								<li class="fragment">Get a simple count of things that fit a certain search criteria.</li>
+								<li class="fragment">Group items into common shared attributes. Grouping by call number class for example.</li>
+								<li class="fragment">Find bib records where all attached items are suppressed (<a target="_blank" href="https://github.com/plch/sierra-sql/wiki/Bib-Record-Searches#find-bib-records-and-return-their-number-where-all-attached-items-are-suppressed">github link</a>)</li>
+							</ul>
+						</li>	
+					</ul>				
+				</section>
+				
+				<section data-state="showlogo">
+					<h2>Sierra SQL Tips and Tricks</h2>
+					<ul>
+						<li><a target="_blank" href="https://github.com/plch/sierra-sql/wiki/Sierra-SQL-Tips-and-Tricks">github.com/plch/sierra-sql/wiki/Sierra-SQL-Tips-and-Tricks</a></li>
+					</ul>
+					
+				</section>
+				
+				
+				<section data-state="showlogo">
+					<h1>THANK YOU!</h1>
+					<a href="https://github.com/rayvoelker/ohiug-2017">github.com/rayvoelker/ohiug-2017</a>
+					<a href="https://github.com/plch/sierra-sql">github.com/plch/sierra-sql</a>
+				
+				</section>
+				
+				
+				
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		Reveal.addEventListener( 'hidelogo', function() {
+			var img = document.getElementById('plchlogo');
+			img.style.visibility = 'hidden';
+		}, false );
+
+		Reveal.addEventListener( 'showlogo', function() {
+			var img = document.getElementById('plchlogo');
+			img.style.visibility = 'visible';
+		}, false );
+
+
+		</script>
+
+	</body>
+</html>
